@@ -9,15 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0A0F1C;
-    --surface:#121A2E;
-    --surface-2:#182339;
-    --text:#E8EDF5;
-    --muted:#8892A6;
-    --cyan:#3DDDE8;
-    --cyan-dim: rgba(61,221,232,0.15);
-    --amber:#FFB454;
-    --border: rgba(255,255,255,0.08);
     --maxw: 1180px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -171,65 +162,6 @@
   }
   .lang-pill b{color:var(--text);font-family:'Inter',sans-serif;}
 
-  /* PROJECTS — pinned scroll-driven carousel */
-  .pc-pin{position:relative;height:calc(var(--pc-slides) * 100vh);margin-top:56px;}
-  .pc-viewport{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
-  .pc-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;width:100%;}
-  .pc-info{position:relative;height:280px;}
-  .pc-info-slide{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;justify-content:center;opacity:0;pointer-events:none;will-change:opacity,transform;}
-  .pc-info-slide.is-active{pointer-events:auto;}
-  .pc-info-index{color:var(--amber);font-size:13px;letter-spacing:0.06em;}
-  .pc-info-tag{color:var(--cyan);font-size:12.5px;text-transform:uppercase;letter-spacing:0.05em;}
-  .pc-info-title{font-size:clamp(28px,3.4vw,42px);}
-  .pc-info-slide p{color:var(--muted);font-size:15px;max-width:46ch;}
-  .pc-info-links{display:flex;gap:10px;margin-top:6px;}
-  .pc-stage{position:relative;overflow:hidden;height:420px;display:flex;align-items:center;}
-  .pc-track{display:flex;gap:28px;will-change:transform;transform:translate3d(0,0,0);}
-  .pc-card{flex:0 0 min(72%,460px);border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);opacity:0.4;transform:scale(0.94);transition:opacity 0.35s ease,transform 0.35s ease,border-color 0.35s ease;}
-  .pc-card.is-active{opacity:1;transform:scale(1);border-color:var(--cyan-dim);}
-  .pc-card-thumb{aspect-ratio:16/10;overflow:hidden;}
-  .pc-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-  .pc-card-caption{display:flex;gap:12px;align-items:baseline;padding:14px 18px;font-family:'Space Grotesk',sans-serif;font-size:15px;}
-  .pc-card-caption .mono{color:var(--amber);font-size:12.5px;}
-  .pc-footer{display:flex;justify-content:space-between;align-items:center;max-width:var(--maxw);margin:32px auto 0;padding:0 32px;}
-  .pc-dots{display:flex;gap:10px;}
-  .pc-dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;padding:0;transition:0.3s;}
-  .pc-dot.is-active{background:var(--cyan);border-color:var(--cyan);transform:scale(1.2);}
-  .pc-hint{color:var(--muted);font-size:12px;letter-spacing:0.04em;display:flex;align-items:center;gap:8px;opacity:1;transition:opacity 0.3s ease;}
-  .pc-hint.is-done{opacity:0;}
-  .pc-hint-arrow{display:inline-block;animation:pc-bob 1.6s ease-in-out infinite;color:var(--cyan);}
-  @keyframes pc-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
-  @media (max-width:860px){
-    .pc-pin{height:auto;margin-top:32px;}
-    .pc-viewport{position:static;height:auto;display:block;padding:0 0 8px;}
-    .pc-grid{display:block;}
-    .pc-info{height:auto;position:static;margin-bottom:20px;}
-    .pc-info-slide{position:static;opacity:1;pointer-events:auto;transform:none;display:none;}
-    .pc-info-slide.is-active{display:flex;}
-    .pc-stage{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
-    .pc-track{gap:16px;transform:none !important;}
-    .pc-card{flex:0 0 82%;scroll-snap-align:center;opacity:1;transform:none;}
-    .pc-footer{padding:0 24px;margin-top:18px;}
-    .pc-hint{display:none;}
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:24px;
-      margin-top:28px;
-    }
-    .project-card{border:1px solid var(--border);background:var(--surface);overflow:hidden;}
-    .project-thumb{aspect-ratio:16/10;background:var(--surface-2);}
-    .project-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-    .project-body{padding:20px;}
-    .project-tag{color:var(--accent);font:12px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em;}
-    .project-body h3{font-size:22px;margin:8px 0 10px;}
-    .project-body p{color:var(--muted);font-size:14px;}
-    .project-links{display:flex;gap:10px;margin-top:18px;}
-    .desktop-nav a.active{color:var(--accent);}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .pc-info-slide,.pc-card,.pc-hint-arrow{transition:none;animation:none;}
-  }
   .btn{
     font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:9px 16px;border-radius:8px;
     border:1px solid var(--border);transition:0.2s;
@@ -259,6 +191,8 @@
     --muted:#716E67;
     --accent:#C4512D;
     --accent-soft:#F0D8CF;
+    --cyan:var(--accent);
+    --cyan-dim:rgba(196,81,45,.15);
     --border:#D8D2C8;
     --maxw:1180px;
     --sidebar-width:40vw;
@@ -300,7 +234,7 @@
   .hero-preview-tag{margin-top:5px;color:var(--muted);font-size:13px;}
   .hero-preview-note{margin-top:22px;color:var(--muted);font:12px 'JetBrains Mono',monospace;}
   .eyebrow-line .dash{background:var(--accent);}
-  .eyebrow-line span,.sec-head .index,.pc-info-index,.pc-card-caption .mono{color:var(--accent);}
+  .eyebrow-line span,.sec-head .index{color:var(--accent);}
   #hero h1{font-size:clamp(44px,7vw,88px);}
   #hero h1 .last{color:var(--accent);}
   .role{color:var(--muted);max-width:650px;}
@@ -322,9 +256,9 @@
   }
   .photo-frame{border-radius:0;border-color:var(--border);background:var(--surface-2);}
   .photo-frame::after{display:none;}
-  .about-bio p,.tl-item ul,.pc-info-slide p{color:var(--muted);}
+  .about-bio p,.tl-item ul{color:var(--muted);}
   .tl-item::before{background:var(--bg);border-color:var(--accent);}
-  .tl-date,.pc-info-tag{color:var(--accent);}
+  .tl-date{color:var(--accent);}
   .skills-grid{grid-template-columns:repeat(3,1fr);}
   .skill-card{border-radius:0;background:var(--surface);border-color:var(--border);transition:none;}
   .skill-card:hover{border-color:var(--accent);transform:none;}
@@ -333,15 +267,6 @@
   .tech-line{margin-top:28px;color:var(--muted);font-size:14px;}
   .lang-pill{border-color:var(--border);color:var(--muted);}
   .lang-pill b{color:var(--text);}
-  .pc-pin{margin-top:28px;}
-  .pc-info-slide{filter:none!important;transition:none;}
-  .pc-card{border-radius:0;background:var(--surface);border-color:var(--border);opacity:.65;transform:none;transition:opacity .15s ease,border-color .15s ease;}
-  .pc-card.is-active{border-color:var(--accent);opacity:1;transform:none;}
-  .pc-card-caption{padding:12px 16px;}
-  .pc-dots{gap:8px;flex-wrap:wrap;}
-  .pc-dot{width:auto;height:auto;border:1px solid var(--border);border-radius:0;padding:8px 12px;background:transparent;color:var(--muted);font:12px 'JetBrains Mono',monospace;transition:none;}
-  .pc-dot.is-active{background:var(--accent);border-color:var(--accent);color:#fff;transform:none;}
-  .pc-hint{display:none;}
   .btn{border-radius:0;border-color:var(--border);transition:none;}
   .btn:hover,.btn:focus-visible{border-color:var(--accent);color:var(--accent);}
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
@@ -358,7 +283,6 @@
     .hero-preview{display:none;}
     .skills-grid{grid-template-columns:1fr;}
     .projects-grid{grid-template-columns:1fr;}
-    .pc-footer{padding:0 24px;}
   }
 </style>
 <style>
@@ -593,9 +517,9 @@
   <div class="wrap">
     <div class="sec-head"><span class="index">04 - Principles</span><h2>How I work</h2></div>
     <div class="skills-grid">
-      <div class="skill-card"><h3>01 — Start with people</h3><p>Listen for the friction, clarify the goal, and make the interface feel obvious.</p></div>
-      <div class="skill-card"><h3>02 — Make it usable</h3><p>Prefer accessible structure, responsive layouts, and calm interactions over decoration.</p></div>
-      <div class="skill-card"><h3>03 — Ship thoughtfully</h3><p>Prototype quickly, communicate clearly, and leave the code easier to understand.</p></div>
+      <div class="skill-card"><h3>01 - Start with people</h3><p>Listen for the friction, clarify the goal, and make the interface feel obvious.</p></div>
+      <div class="skill-card"><h3>02 - Make it usable</h3><p>Prefer accessible structure, responsive layouts, and calm interactions over decoration.</p></div>
+      <div class="skill-card"><h3>03 - Ship thoughtfully</h3><p>Prototype quickly, communicate clearly, and leave the code easier to understand.</p></div>
     </div>
     <p class="tech-line"><strong>Tech:</strong> HTML5 · CSS3 · JavaScript · Java (OOP) · Git/GitHub · Figma · Responsive Web Design</p>
     <div class="lang-row">
@@ -609,7 +533,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head"><span class="index">01 — Projects</span><h2>Selected work</h2></div>
+    <div class="sec-head"><span class="index">01 - Projects</span><h2>Selected work</h2></div>
     <div class="projects-grid">
 
       <div class="project-card">
@@ -619,7 +543,7 @@
         <div class="project-body">
           <span class="project-tag">Solo project</span>
           <h3>MR.COFFEE</h3>
-          <p>A responsive coffee shop website built with HTML, CSS, and JS. Designed the UI myself and deployed via Netlify — my first real website project beyond a certification exercise.</p>
+          <p>A responsive coffee shop website built with HTML, CSS, and JS. Designed the UI myself and deployed via Netlify - my first real website project beyond a certification exercise.</p>
           <div class="project-links">
             <a class="btn primary" href="https://mrcoffee-hci.netlify.app/home" target="_blank" rel="noopener noreferrer">Live Site</a>
           </div>
@@ -660,7 +584,7 @@
         </div>
         <div class="project-body">
           <span class="project-tag">Certification</span>
-          <h3>Responsive Web Design — freeCodeCamp</h3>
+          <h3>Responsive Web Design - freeCodeCamp</h3>
           <p>A self-initiated certification covering building responsive websites in HTML and CSS. My introduction to frontend development, completed in my free time.</p>
           <div class="project-links">
             <span class="btn mono" style="cursor:default;">Issued May 2025</span>
@@ -705,174 +629,6 @@
     if(sourceThumb) heroPreview.appendChild(sourceThumb.cloneNode(true));
     if(sourceTitle) document.querySelector('[data-hero-preview-title]').textContent = sourceTitle.textContent.trim();
   }
-
-  // Projects remain in the document flow so the content column can advance naturally.
-  (function(){
-    return;
-    const section = document.getElementById('projects');
-    const grid = section && section.querySelector('.projects-grid');
-    if(!grid) return;
-
-    const sourceCards = Array.from(grid.querySelectorAll('.project-card'));
-    const pin = document.createElement('div');
-    pin.className = 'pc-pin';
-    pin.id = 'pc-pin';
-    pin.style.setProperty('--pc-slides', sourceCards.length);
-    pin.innerHTML = `
-      <div class="pc-viewport">
-        <div class="wrap pc-grid">
-          <div class="pc-info"></div>
-          <div class="pc-stage"><div class="pc-track" id="pc-track"></div></div>
-        </div>
-        <div class="pc-footer">
-          <div class="pc-dots" id="pc-dots" role="tablist" aria-label="Project navigation"></div>
-          <div class="pc-hint mono" id="pc-hint"><span class="pc-hint-arrow">↓</span> scroll to move through the work</div>
-        </div>
-      </div>`;
-
-    const info = pin.querySelector('.pc-info');
-    const track = pin.querySelector('.pc-track');
-    sourceCards.forEach((source, index)=>{
-      const body = source.querySelector('.project-body');
-      const thumb = source.querySelector('.project-thumb');
-      const tag = body.querySelector('.project-tag');
-      const title = body.querySelector('h3');
-      const description = body.querySelector('p');
-      const links = body.querySelector('.project-links');
-
-      const infoSlide = document.createElement('div');
-      infoSlide.className = `pc-info-slide${index === 0 ? ' is-active' : ''}`;
-      infoSlide.dataset.index = index;
-      infoSlide.innerHTML = `
-        <span class="pc-info-index mono">${String(index + 1).padStart(2, '0')} / ${String(sourceCards.length).padStart(2, '0')}</span>`;
-      const infoTag = tag.cloneNode(true);
-      infoTag.className = 'pc-info-tag mono';
-      const infoTitle = title.cloneNode(true);
-      infoTitle.className = 'pc-info-title';
-      infoSlide.append(infoTag, infoTitle, description.cloneNode(true), links.cloneNode(true));
-      info.appendChild(infoSlide);
-
-      const card = document.createElement('div');
-      card.className = `pc-card${index === 0 ? ' is-active' : ''}`;
-      card.id = `project-card-${index}`;
-      card.dataset.index = index;
-      thumb.className = 'pc-card-thumb';
-      card.appendChild(thumb);
-      const caption = document.createElement('div');
-      caption.className = 'pc-card-caption';
-      caption.innerHTML = `<span class="mono">${String(index + 1).padStart(2, '0')}</span>`;
-      caption.appendChild(title.cloneNode(true));
-      card.appendChild(caption);
-      track.appendChild(card);
-    });
-
-    const dots = pin.querySelector('.pc-dots');
-    sourceCards.forEach((_, index)=>{
-      const dot = document.createElement('button');
-      dot.className = `pc-dot${index === 0 ? ' is-active' : ''}`;
-      dot.dataset.index = index;
-      dot.type = 'button';
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', `View ${sourceCards[index].querySelector('h3').textContent.trim()}`);
-      dot.setAttribute('aria-controls', `project-card-${index}`);
-      dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-      dot.textContent = `${String(index + 1).padStart(2, '0')} · ${sourceCards[index].querySelector('h3').textContent.trim()}`;
-      dots.appendChild(dot);
-    });
-    grid.replaceWith(pin);
-
-    const cards = Array.from(track.querySelectorAll('.pc-card'));
-    const infoSlides = Array.from(pin.querySelectorAll('.pc-info-slide'));
-    const dotButtons = Array.from(dots.querySelectorAll('.pc-dot'));
-    const hint = pin.querySelector('.pc-hint');
-    const stage = pin.querySelector('.pc-stage');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobileLayout = () => window.innerWidth <= 860;
-    let ticking = false;
-    let hintDismissed = false;
-    let activeIndex = -1;
-
-    function clamp(value, min, max){ return Math.max(min, Math.min(max, value)); }
-    function cardStep(){
-      const first = cards[0];
-      const second = cards[1];
-      if(!first) return 0;
-      return (second ? second.offsetLeft - first.offsetLeft : first.offsetWidth) || first.offsetWidth + 28;
-    }
-    function setActive(index){
-      index = clamp(Math.round(index), 0, cards.length - 1);
-      if(index === activeIndex) return;
-      activeIndex = index;
-      cards.forEach((card, i)=>card.classList.toggle('is-active', i === index));
-      dotButtons.forEach((dot, i)=>{
-        dot.classList.toggle('is-active', i === index);
-        dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
-      });
-      infoSlides.forEach((slide, i)=>slide.classList.toggle('is-active', i === index));
-    }
-    function paintInfo(slidePos){
-      infoSlides.forEach((slide, i)=>{
-        const difference = slidePos - i;
-        const distance = Math.abs(difference);
-        slide.style.opacity = clamp(1 - distance * 2, 0, 1);
-        slide.style.transform = `translateY(${clamp(difference, -1, 1) * 22}px)`;
-        slide.style.filter = 'none';
-      });
-    }
-    function update(){
-      ticking = false;
-      if(isMobileLayout() || reduceMotion) return;
-      const rect = pin.getBoundingClientRect();
-      const scrollable = pin.offsetHeight - window.innerHeight;
-      if(scrollable <= 0) return;
-      const progress = clamp(-rect.top / scrollable, 0, 1);
-      const slidePos = progress * (cards.length - 1);
-      track.style.transform = `translate3d(${-slidePos * cardStep()}px,0,0)`;
-      paintInfo(slidePos);
-      setActive(slidePos);
-      if(progress > 0 && !hintDismissed){
-        hintDismissed = true;
-        hint.classList.add('is-done');
-      }
-    }
-    function onScroll(){
-      if(!ticking){
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    }
-    function goToSlide(index){
-      if(isMobileLayout()){
-        const card = cards[index];
-        if(card) stage.scrollTo({left: card.offsetLeft - (stage.clientWidth - card.offsetWidth) / 2, behavior:'smooth'});
-        setActive(index);
-        return;
-      }
-      const scrollable = pin.offsetHeight - window.innerHeight;
-      const pinTop = pin.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({top: pinTop + index / (cards.length - 1) * scrollable + 1, behavior:'smooth'});
-    }
-    dotButtons.forEach((dot, index)=>dot.addEventListener('click', ()=>goToSlide(index)));
-    if(!reduceMotion){
-      window.addEventListener('scroll', onScroll, {passive:true});
-      window.addEventListener('resize', onScroll);
-    }
-    stage.addEventListener('scroll', ()=>{
-      if(!isMobileLayout()) return;
-      const center = stage.scrollLeft + stage.clientWidth / 2;
-      let closest = 0;
-      let distance = Infinity;
-      cards.forEach((card, index)=>{
-        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-        const currentDistance = Math.abs(cardCenter - center);
-        if(currentDistance < distance){ distance = currentDistance; closest = index; }
-      });
-      setActive(closest);
-    }, {passive:true});
-    paintInfo(0);
-    setActive(0);
-    update();
-  })();
 
   // Nav overlay toggle
   function toggleNav(){
